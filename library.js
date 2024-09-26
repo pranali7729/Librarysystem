@@ -15,6 +15,14 @@ class Library {
         }
         return 'Book not available';
     }
+    returnBook(id) {
+        const book = this.books.find(b => b.id === id);
+        if (book && !book.available) {
+          book.available = true;
+          return 'Book returned';
+        }
+        return 'Book not borrowed';
+      }
 }
 
 module.exports = Library;

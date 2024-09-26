@@ -31,4 +31,15 @@ describe('Library Management System', () => {
     
         expect(result).toBe('Book not available');
     });
+    test('should allow a user to return a borrowed book', () => {
+        const library = new Library();
+        const book = { id: 1, title: '1984', author: 'George Orwell', year: 1949, available: false };
+      
+        library.addBook(book);
+        const result = library.returnBook(1);
+      
+        expect(result).toBe('Book returned');
+        expect(library.books[0].available).toBe(true);
+      });
+      
 });
