@@ -23,6 +23,9 @@ class Library {
         }
         return 'Book not borrowed';
       }
+      viewAvailableBooks() {
+        return this.books.filter(book => book.available);
+      }
 }
 
 module.exports = Library;
