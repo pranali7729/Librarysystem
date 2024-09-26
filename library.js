@@ -1,12 +1,20 @@
 class Library {
     constructor() {
-      this.books = [];
+        this.books = [];
     }
-  
+
     addBook(book) {
-      this.books.push(book);
+        this.books.push(book); // Keep the book's original properties
     }
-  }
-  
-  module.exports = Library;
-  
+
+    borrowBook(id) {
+        const book = this.books.find(b => b.id === id);
+        if (book && book.available) {
+            book.available = false;
+            return 'Book borrowed';
+        }
+        return 'Book not available';
+    }
+}
+
+module.exports = Library;
